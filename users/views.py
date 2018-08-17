@@ -56,3 +56,13 @@ def login():
 
     users.append(user_data)
     return jsonify({'message':'you are successfully login.'}), 201
+
+
+#get questions
+@app.route("/api/v1/user/question", methods=["GET"])
+def fetch_question():
+    if len(questions)>0:
+        return jsonify({"message":questions}), 302
+    else:
+        return jsonify({"message":"There are no questions found"}),400
+
