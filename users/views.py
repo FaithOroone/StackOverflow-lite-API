@@ -36,4 +36,4 @@ def signup():
         return jsonify({'message':'Please confirm your password'}), 400
 
     users.append(user_data)
-    return jsonify({'message':'you have successfully signed up'}), 
+    return jsonify({'message':'you have successfully signed up'}), 201
