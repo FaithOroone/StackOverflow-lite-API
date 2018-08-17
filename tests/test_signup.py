@@ -14,3 +14,11 @@ class SignupTest(TestCase):
             "password":"sasdfggjh",
             "confirm_password":"sasdfggjh"
         }
+    
+    def test_user_signup(self):
+            response = self.app.post('api/v1/auth/signup', data = json.dumps(self.user_data), content_type = 'application/json')
+        self.assertEqual(response.status_code, 201)
+        self.assertIn("you have successfully signed up", str(response.data))
+
+    if __name__ == '__main__':
+        unittest.main()
