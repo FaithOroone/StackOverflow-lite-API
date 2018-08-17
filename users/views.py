@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, make_response
-from .models import users, users
+from .models import Users, users, questions, questions
 import re
 
 app = Flask(__name__)
@@ -59,7 +59,7 @@ def login():
 
 
 #get questions
-@app.route("/api/v1/user/question", methods=["GET"])
+@app.route('/api/v1/user/question', methods=["GET"])
 def fetch_question():
     if len(questions)>0:
         return jsonify({"message":questions}), 302
