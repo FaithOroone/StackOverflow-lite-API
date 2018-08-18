@@ -90,3 +90,11 @@ def post_aquestion():
 	questions.append(request_data)
 	return jsonify({"message":"you have posted your first question"}), 201
 
+#fetch a specific question
+@app.route('/api/v1/question/<int:question_id>', methods=['GET'])
+def get_a_question(question_id):
+    if isinstance(question_id, int):
+    	return jsonify({
+			'message':'you have fetched one question'
+			}), 302
+	
