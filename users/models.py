@@ -10,13 +10,14 @@ class Users:
 users = []
 
 class Question():
-    def __init__(self,user_profile, username,question):
-        self.user_profile = user_profile
+    def __init__(self, question_id, username,question):
+        self.question_id = question_id
         self.username = username
-        self.question
+        self.question = question
 
-        def get_user_profile(self):
-            return self.user_profile
+        def get_question_id(self):
+            return self.question_id
+
 
         def get_username(self):
             return self.username

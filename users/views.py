@@ -31,7 +31,7 @@ def signup():
 
     if not password or password ==" " or len(password)< 8:
         return jsonify({'message':'Avalid password is required'}), 400
-        
+
     if not confirm_password or confirm_password == " " or len(confirm_password)<8:
         return jsonify({'message':'Please confirm your password'}), 400
 
@@ -60,9 +60,9 @@ def login():
 
 #get questions
 @app.route('/api/v1/user/question', methods=["GET"])
-def fetch_question():
+def fetch_questions():
     if len(questions)>0:
         return jsonify({"message":questions}), 302
     else:
-        return jsonify({"message":"There are no questions found"}),400
+        return jsonify({"message":"There are no questions found"}),404
 
