@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, make_response
-from .models import users, users
+from .models import Users, users, questions, questions
 import re
 
 app = Flask(__name__)
@@ -31,7 +31,7 @@ def signup():
 
     if not password or password ==" " or len(password)< 8:
         return jsonify({'message':'Avalid password is required'}), 400
-        
+
     if not confirm_password or confirm_password == " " or len(confirm_password)<8:
         return jsonify({'message':'Please confirm your password'}), 400
 
@@ -56,3 +56,13 @@ def login():
 
     users.append(user_data)
     return jsonify({'message':'you are successfully login.'}), 201
+
+
+#get questions
+@app.route('/api/v1/user/question', methods=["GET"])
+def fetch_questions():
+    if len(questions)>0:
+        return jsonify({"message":questions}), 302
+    else:
+        return jsonify({"message":"There are no questions found"}),404
+
